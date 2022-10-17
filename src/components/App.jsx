@@ -22,6 +22,7 @@ export function App() {
       <FilterContacts />
       <h2>Contacts:</h2>
       <ContactsList />
+      {/* <Loading/> */}
     </div>
   );
 }
