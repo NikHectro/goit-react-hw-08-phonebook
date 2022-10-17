@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 // import { removeContact } from 'redux/actions';
@@ -16,6 +17,9 @@ export function ContactsList() {
       // contact.name.toLowerCase().includes(filterInput.toLowerCase())
     );
   };
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const deletedContactByID = id => {
     dispatch(removeContact(id));

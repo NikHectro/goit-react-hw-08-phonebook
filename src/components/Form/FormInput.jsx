@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,16 +15,6 @@ export function FormInput() {
   // const contactsForChecking = useSelector(
   //   state => state.phoneBookReducer.contacts
   // );
-
-  // const inputOperator = event => {
-  //   if (event.target.name === 'name') {
-  //     setName(event.target.value);
-  //   } else if (event.target.name === 'number') {
-  //     setPhone(event.target.value);
-  //   } else {
-  //     throw new Error('Unexpected value');
-  //   }
-  // };
 
   const handleSubmit = event => {
     event.preventDefault();
