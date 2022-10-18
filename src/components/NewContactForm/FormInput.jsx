@@ -4,14 +4,13 @@ import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 // import { addContact } from '../../redux/actions';
 import { addContact } from 'redux/operations';
+import { selectGetItemsContacts } from 'redux/selector';
 import { nanoid } from 'nanoid';
-
-// const nameInputId = nanoid();
-// const numberInputId = nanoid();
 
 export function FormInput() {
   const dispatch = useDispatch();
-  const contactsForChecking = useSelector(state => state.items.contacts);
+  const contactsForChecking = useSelector(selectGetItemsContacts);
+  // const contactsForChecking = useSelector(state => state.items.contacts);
   // const contactsForChecking = useSelector(
   //   state => state.phoneBookReducer.contacts
   // );

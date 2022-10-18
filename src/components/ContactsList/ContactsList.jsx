@@ -28,9 +28,6 @@ export function ContactsList() {
   };
 
   return (
-    // if (!contacts) {
-    //   <h2>No contactcs</h2>
-    // }
     <>
       {isLoading && <Circles />}
       {!isLoading && (

@@ -1,12 +1,24 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { AppBar } from './AppBar/AppBar';
+import { getUser } from '../redux/operations';
+import { Contacts } from './ContactsList/Contacts';
+// import { Loader } from './Loader/Loader';
+import { LoginForm } from './Login/LoginForm';
+import { RegisterForm } from './Register/RegisterForm';
 // import { FormInput } from './Form/FormInput';
 // import { ContactsList } from './ContactsList/ContactsList';
 // import { FilterContacts } from './FilterContacts/FilterContacts';
-// import { nanoid } from 'nanoid';
 
 export function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
+
   return (
     <div
       style={{
@@ -23,9 +35,9 @@ export function App() {
       <AppBar />
       <Routes>
         <Route path="/" element={<p>Start page</p>} />
-        <Route path="/register" element={<p>Register</p>} />
-        <Route path="/login" element={<p>Login</p>} />
-        <Route path="/contacts" element={<p>Contacts</p>} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
       </Routes>
     </div>
   );

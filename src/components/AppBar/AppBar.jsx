@@ -1,34 +1,28 @@
 import { NavLink, Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-// import { UserMenu } from './UserMenu';
-import { selectIsAuth } from 'redux/selector';
-import s from './AppBar.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../redux/operations';
+import { selectIsAuth, selectGetEmail } from '../../redux/selector';
 
 export function AppBar() {
   const isAuth = useSelector(selectIsAuth);
+  const dispatch = useDispatch();
+  const email = useSelector(selectGetEmail);
 
   return (
     <header>
-      <Link to="/" className={s.title}>
-        <span className={s.logo}>📓</span> Phonebook APP
-      </Link>
-      <div className={s.navWrapper}>
-        {!isAuth ? (
-          <NavLink to="/register" className={s.link}>
-            Register
-          </NavLink>
-        ) : null}
+      <Link to="/">PhoneBOOK</Link>
+      <div>
+        {isAuth ? <NavLink to="/contacts">Contacts</NavLink> : null}
+        {!isAuth ? <NavLink to="/login">Log In</NavLink> : null}
+        {!isAuth ? <NavLink to="/register">Register</NavLink> : null}
         {isAuth ? (
-          <NavLink to="/contacts" className={s.link}>
-            Contacts
-          </NavLink>
+          <div>
+            <p>{email}</p>
+            <button type="button" onClick={() => dispatch(logout())}>
+              Log Out
+            </button>
+          </div>
         ) : null}
-        {!isAuth ? (
-          <NavLink to="/login" className={s.link}>
-            Log In
-          </NavLink>
-        ) : null}
-        {/* {isAuth ? <UserMenu /> : null} */}
       </div>
     </header>
   );

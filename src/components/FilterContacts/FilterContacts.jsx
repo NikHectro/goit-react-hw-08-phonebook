@@ -2,10 +2,11 @@ import Form from 'react-bootstrap/Form';
 import { useSelector, useDispatch } from 'react-redux';
 // import { filter } from '../../redux/actions';
 import { setFilter } from '../../redux/slices';
+import { selectGetFilterValue } from '../../redux/selector';
 
 export function FilterContacts() {
   const dispatch = useDispatch();
-  const value = useSelector(state => state.filter);
+  const value = useSelector(selectGetFilterValue);
   // const value = useSelector(state => state.phoneBookReducer.filter);
 
   const onChange = event => {
