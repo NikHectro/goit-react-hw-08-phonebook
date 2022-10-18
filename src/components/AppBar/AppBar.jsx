@@ -2,6 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../redux/operations';
 import { selectIsAuth, selectGetEmail } from '../../redux/selector';
+import Button from 'react-bootstrap/Button';
 
 export function AppBar() {
   const isAuth = useSelector(selectIsAuth);
@@ -10,11 +11,21 @@ export function AppBar() {
 
   return (
     <header>
-      <Link to="/">PhoneBOOK</Link>
+      <Link to="/">
+        <h1>PhoneBOOK</h1>
+      </Link>
       <div>
         {isAuth ? <NavLink to="/contacts">Contacts</NavLink> : null}
-        {!isAuth ? <NavLink to="/login">Log In</NavLink> : null}
-        {!isAuth ? <NavLink to="/register">Register</NavLink> : null}
+        {!isAuth ? (
+          <NavLink to="/login">
+            <Button type="submit">Log In</Button>
+          </NavLink>
+        ) : null}
+        {!isAuth ? (
+          <NavLink to="/register">
+            <Button type="submit">Register</Button>
+          </NavLink>
+        ) : null}
         {isAuth ? (
           <div>
             <p>{email}</p>

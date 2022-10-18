@@ -31,10 +31,9 @@ export function App() {
         gap: '40px',
       }}
     >
-      {/* {<p>AppBar</p>} */}
       <AppBar />
       <Routes>
-        <Route path="/" element={<p>Start page</p>} />
+        <Route path="/" element={<h2>Login to start</h2>} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/register" element={<RegisterForm />} />

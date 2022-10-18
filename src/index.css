@@ -13,3 +13,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  margin-left: 20px;
+}
+
+input {
+  margin-left: 10px;
+}
+label {
+  margin-left: 10px;
+}
